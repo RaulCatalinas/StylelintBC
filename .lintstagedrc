@@ -1,0 +1,6 @@
+{
+  "src/**/*.ts": [
+    "prettier src --check",
+    "eslint src --max-warnings 0"
+  ]
+}

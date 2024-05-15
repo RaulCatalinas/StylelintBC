@@ -1,4 +1,5 @@
 // NodeJS
+import fs from 'node:fs/promises'
 import process from 'node:process'
 
 // Utils
@@ -8,6 +9,9 @@ import { getErrorMessage } from './errors'
 // Third-Party libraries
 import { exists as existsFolderOrFile } from 'fs-extra'
 
+// Constants
+import { UTF8_ENCODING } from '@/constants/encoding'
+
 export async function exists(path: string) {
   try {
     return await existsFolderOrFile(path)
@@ -15,6 +19,21 @@ export async function exists(path: string) {
     writeMessage({
       type: 'error',
       message: getErrorMessage('CheckFileExists')
+    })
+
+    process.exit(1)
+  }
+}
+
+export async function createEmptyJsonFile(name: string) {
+  try {
+    await fs.writeFile(`${process.cwd()}/${name}`, JSON.stringify({}), {
+      encoding: UTF8_ENCODING
+    })
+  } catch {
+    writeMessage({
+      type: 'error',
+      message: getErrorMessage('CreateEmptyFile')
     })
 
     process.exit(1)

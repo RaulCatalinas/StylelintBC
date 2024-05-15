@@ -15,5 +15,11 @@ export const ERROR_MESSAGES = {
 
   CheckFileExists: `An error occurred while checking if the file/folder exists, please try again later, if the error persists, please report it on ${ISSUES}.`,
 
-  VSCodeEditor: `An error occurred while prompting the user about using VS Code as the code editor. Please try again later, if the error persists please report it on ${ISSUES}.`
+  VSCodeEditor: `An error occurred while prompting the user about using VS Code as the code editor. Please try again later, if the error persists please report it on ${ISSUES}.`,
+
+  CreateEmptyFile: `An error occurred while creating the empty file. Please try again later, if the error persists please report it on ${ISSUES}.`,
+
+  VSCodeConfig: `An error occurred while configuring VS Code. Please try again later, if the error persists please report it on ${ISSUES}.`,
+
+  AddRecommendedExtensions: `An error occurred while adding recommended extensions to the 'extensions.json' file. Please try again later, if the error persists please report it on ${ISSUES}.`
 } as const

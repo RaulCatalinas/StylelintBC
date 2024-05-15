@@ -23,6 +23,7 @@
     "@commitlint/cli": "19.3.0",
     "@commitlint/config-conventional": "19.2.2",
     "@types/bun": "1.1.2",
+    "@types/fs-extra": "11.0.4",
     "@types/npmcli__promise-spawn": "6.0.3",
     "@types/opener": "1.4.3",
     "@typescript-eslint/eslint-plugin": "^7.0.1",

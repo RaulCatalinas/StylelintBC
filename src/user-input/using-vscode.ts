@@ -8,7 +8,7 @@ import process from 'node:process'
 import { writeMessage } from '@/utils/console'
 import { getErrorMessage } from '@/utils/errors'
 
-export async function usingVSCEditor(): Promise<boolean> {
+export async function usingVSCodeEditor(): Promise<boolean> {
   try {
     const { usingVSCodeEditor } = await inquirer.prompt({
       type: 'confirm',

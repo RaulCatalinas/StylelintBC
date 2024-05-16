@@ -37,7 +37,7 @@ export async function generateStylelintConfig({
         'stylelint',
         'stylelint-config-standard',
         `${useStylelintConfigCleanOrder ? 'stylelint-config-clean-order' : ''}`
-      ]
+      ].filter(packageToInstall => packageToInstall !== '')
     })
 
     writeMessage({

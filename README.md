@@ -15,12 +15,9 @@ StylelintBC is a command line for easy Husky configuration
 
 2. Run the CLI
 
-| Package Manager | Execution Command      |
-| --------------- | ---------------------- |
-| npm             | `npx stylelintbc`      |
-| pnpm            | `pnpm dlx stylelintbc` |
-| yarn            | `yarn dlx stylelintbc` |
-| bun             | `bunx stylelintbc`     |
+```bash
+stylelintbc
+```
 
 ## Feedback
 

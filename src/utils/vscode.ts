@@ -40,9 +40,9 @@ export async function configureVSCode() {
 
     const vscodeSettingsObject: Settings = JSON.parse(vscodeSettings)
 
-    vscodeSettingsObject['[css]'] = JSON.stringify({
+    vscodeSettingsObject['[css]'] = {
       'editor.defaultFormatter': 'stylelint.vscode-stylelint'
-    })
+    }
 
     await fs.writeFile(
       '.vscode/settings.json',

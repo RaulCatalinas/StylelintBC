@@ -4,10 +4,10 @@
 .lintstagedrc
 .gitignore
 .prettierrc.yaml
-.swcrc
 commitlint.config.js
 markdownlint.jsonc
 tsconfig.json
 bun.lockb
 .github
 CONTRIBUTING.md
+src

@@ -21,5 +21,7 @@ export const ERROR_MESSAGES = {
 
   VSCodeConfig: `An error occurred while configuring VS Code. Please try again later, if the error persists please report it on ${ISSUES}.`,
 
-  AddRecommendedExtensions: `An error occurred while adding recommended extensions to the 'extensions.json' file. Please try again later, if the error persists please report it on ${ISSUES}.`
+  AddRecommendedExtensions: `An error occurred while adding recommended extensions to the 'extensions.json' file. Please try again later, if the error persists please report it on ${ISSUES}.`,
+
+  CreateFolder: `An error occurred while creating the folder: {folderName}, please try again later, if the error persists, please report it on ${ISSUES}.`
 } as const

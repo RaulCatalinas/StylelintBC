@@ -5,7 +5,7 @@ import process from 'node:process'
 // Utils
 import { writeMessage } from './console'
 import { getErrorMessage } from './errors'
-import { createEmptyJsonFile, exists } from './user-os'
+import { createEmptyJsonFile, createFolder, exists } from './user-os'
 
 // Constants
 import { UTF8_ENCODING } from '@/constants/encoding'
@@ -19,6 +19,12 @@ export async function configureVSCode() {
       type: 'info',
       message: 'Configuring VSCode...'
     })
+
+    const existVSCodeFolder = await exists(`${process.cwd()}/.vscode`)
+
+    if (!existVSCodeFolder) {
+      await createFolder('.vscode')
+    }
 
     const existVSCodeSettingsFile = await exists(
       `${process.cwd()}/.vscode/settings.json`

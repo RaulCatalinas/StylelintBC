@@ -39,3 +39,17 @@ export async function createEmptyJsonFile(name: string) {
     process.exit(1)
   }
 }
+
+export async function createFolder(name: string) {
+  try {
+    await fs.mkdir(`${process.cwd()}/${name}`)
+  } catch {
+    const errorMessage = getErrorMessage('CreateFolder')
+
+    writeMessage({
+      type: 'error',
+      message: errorMessage.replace('{folderName}', name)
+    })
+    process.exit(1)
+  }
+}

@@ -27,7 +27,7 @@ export async function generateStylelintConfig({
 }: Props) {
   try {
     writeMessage({
-      type: 'info',
+      type: 'config',
       message: "Generating Stylelint's configuration..."
     })
 

@@ -6,13 +6,13 @@ import process from 'node:process'
 import { writeMessage } from './console'
 import { installDependencies } from './dependencies'
 import { getErrorMessage } from './errors'
+import { addRecommendedExtension, configureVSCode } from './vscode'
 
 // Types
 import type { PackageManager } from '@/types/package-mangers'
 
 // Constants
 import { UTF8_ENCODING } from '@/constants/encoding'
-import { addRecommendedExtension, configureVSCode } from './vscode'
 
 interface Props {
   packageManagerToUse: PackageManager
@@ -31,44 +31,26 @@ export async function generateStylelintConfig({
       message: "Generating Stylelint's configuration..."
     })
 
-    await installDependencies({
-      packageManagerToUse,
-      packagesToInstall: [
-        'stylelint',
-        'stylelint-config-standard',
-        `${useStylelintConfigCleanOrder ? 'stylelint-config-clean-order' : ''}`
-      ].filter(packageToInstall => packageToInstall !== '')
-    })
+    await Promise.all(
+      [
+        installDependencies({
+          packageManagerToUse,
+          packagesToInstall: [
+            'stylelint',
+            'stylelint-config-standard',
+            `${useStylelintConfigCleanOrder ? 'stylelint-config-clean-order' : ''}`
+          ].filter(packageToInstall => packageToInstall !== '')
+        }),
 
-    writeMessage({
-      type: 'info',
-      message: 'Creating configuration file...'
-    })
+        createStylelintConfigFiles(useStylelintConfigCleanOrder),
 
-    await fs.writeFile(
-      '.stylelintrc.json',
-      JSON.stringify({
-        extends: [
-          'stylelint-config-standard',
-          `${useStylelintConfigCleanOrder ? 'stylelint-config-clean-order' : ''}`
-        ].filter(string => string !== '')
-      }),
-      {
-        encoding: UTF8_ENCODING
-      }
+        usingVSCodeEditor ? configureVSCode() : null,
+
+        usingVSCodeEditor
+          ? addRecommendedExtension('stylelint.vscode-stylelint')
+          : null
+      ].filter(promise => promise != null)
     )
-
-    writeMessage({
-      type: 'info',
-      message: 'Configuration file (.stylelintrc.json) created successfully'
-    })
-
-    if (usingVSCodeEditor) {
-      await Promise.all([
-        configureVSCode(),
-        addRecommendedExtension('stylelint.vscode-stylelint')
-      ])
-    }
 
     writeMessage({
       type: 'success',
@@ -82,4 +64,31 @@ export async function generateStylelintConfig({
 
     process.exit(1)
   }
+}
+
+async function createStylelintConfigFiles(
+  useStylelintConfigCleanOrder: boolean
+) {
+  writeMessage({
+    type: 'info',
+    message: 'Creating configuration file...'
+  })
+
+  await fs.writeFile(
+    '.stylelintrc.json',
+    JSON.stringify({
+      extends: [
+        'stylelint-config-standard',
+        `${useStylelintConfigCleanOrder ? 'stylelint-config-clean-order' : ''}`
+      ].filter(string => string !== '')
+    }),
+    {
+      encoding: UTF8_ENCODING
+    }
+  )
+
+  writeMessage({
+    type: 'success',
+    message: 'Configuration file (.stylelintrc.json) created successfully'
+  })
 }

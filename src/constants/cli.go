@@ -1,8 +1,6 @@
 package constants
 
-import (
-	"stylelintbc/src/types"
-)
+import "stylelintbc/src/types"
 
 var Options = []types.Option{
 	{

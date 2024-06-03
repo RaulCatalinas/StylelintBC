@@ -13,8 +13,6 @@ type InstallDependenciesProps struct {
 }
 
 func InstallDependencies(props InstallDependenciesProps) {
-	installationCommand := constants.INSTALLATION_COMMANDS[props.PackageManagerToUse]
-
 	notificationMessage := "Installing dependencies using: " + props.PackageManagerToUse + "..."
 
 	WriteMessage(WriteMessageProps{
@@ -22,9 +20,21 @@ func InstallDependencies(props InstallDependenciesProps) {
 		Message: string(notificationMessage),
 	})
 
+	installationCommand := constants.INSTALLATION_COMMANDS[props.PackageManagerToUse]
+
+	commandArgs := installationCommand
+
+	for _, pkg := range props.PackagesToInstall {
+		commandArgs += " " + pkg
+	}
+
+	commandArgs += " " + "-D"
+
+	println("Command arguments: " + commandArgs)
+
 	cmd := exec.Command(
-		string(props.PackageManagerToUse)+" "+installationCommand,
-		props.PackagesToInstall...,
+		string(props.PackageManagerToUse),
+		commandArgs,
 	)
 
 	_, err := cmd.CombinedOutput()

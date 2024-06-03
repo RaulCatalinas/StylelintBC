@@ -22,19 +22,15 @@ func InstallDependencies(props InstallDependenciesProps) {
 
 	installationCommand := constants.INSTALLATION_COMMANDS[props.PackageManagerToUse]
 
-	commandArgs := installationCommand
+	commandArgs := []string{installationCommand}
 
-	for _, pkg := range props.PackagesToInstall {
-		commandArgs += " " + pkg
-	}
+	commandArgs = append(commandArgs, props.PackagesToInstall...)
 
-	commandArgs += " " + "-D"
-
-	println("Command arguments: " + commandArgs)
+	commandArgs = append(commandArgs, "-D")
 
 	cmd := exec.Command(
 		string(props.PackageManagerToUse),
-		commandArgs,
+		commandArgs...,
 	)
 
 	_, err := cmd.CombinedOutput()

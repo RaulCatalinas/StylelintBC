@@ -1,6 +1,6 @@
 package main
 
-import "stylelintbc/src/cli"
+import "stylelintbc/cli"
 
 func main() {
 	cli.ReadUserInput()

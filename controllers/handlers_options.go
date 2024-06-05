@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"os"
-	"stylelintbc/src/constants"
-	userInput "stylelintbc/src/user_input"
-	"stylelintbc/src/utils"
+	"stylelintbc/constants"
+	userInput "stylelintbc/user_input"
+	"stylelintbc/utils"
 )
 
 func HandlerOptionBuild() {

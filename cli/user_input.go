@@ -2,8 +2,8 @@ package cli
 
 import (
 	"os"
-	"stylelintbc/src/constants"
-	"stylelintbc/src/controllers"
+	"stylelintbc/constants"
+	"stylelintbc/controllers"
 )
 
 func ReadUserInput() {

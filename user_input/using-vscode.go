@@ -2,24 +2,24 @@ package userinput
 
 import (
 	"os"
-	"stylelintbc/src/utils"
+	"stylelintbc/utils"
 
 	"github.com/AlecAivazis/survey/v2"
 )
 
-func ShouldPublishToNPM() bool {
+func UsingVSCodeEditor() bool {
 	var questions = []*survey.Question{
 		{
-			Name: "shouldPublishToNPM",
+			Name: "usingVSCodeEditor",
 			Prompt: &survey.Confirm{
-				Message: "Will you publish it on npm?",
-				Default: false,
+				Message: "Will you use VS Code as a code editor?",
+				Default: true,
 			},
 		},
 	}
 
 	answers := struct {
-		ShouldPublishToNPM bool `survey:"shouldPublishToNPM"`
+		UsingVSCodeEditor bool `survey:"usingVSCodeEditor"`
 	}{}
 
 	err := survey.Ask(questions, &answers)
@@ -27,11 +27,11 @@ func ShouldPublishToNPM() bool {
 	if err != nil {
 		utils.WriteMessage(utils.WriteMessageProps{
 			Type:    "error",
-			Message: string(utils.GetErrorMessage("PublishConfirmation")),
+			Message: string(utils.GetErrorMessage("VSCodeEditor")),
 		})
 
 		os.Exit(1)
 	}
 
-	return answers.ShouldPublishToNPM
+	return answers.UsingVSCodeEditor
 }

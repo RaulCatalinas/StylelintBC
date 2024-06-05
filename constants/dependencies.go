@@ -1,6 +1,6 @@
 package constants
 
-import "stylelintbc/src/types"
+import "stylelintbc/types"
 
 var INSTALLATION_COMMANDS = map[types.PackageManager]string{
 	"npm":  "install",

@@ -3,7 +3,7 @@ package utils
 import (
 	"encoding/json"
 	"os"
-	"stylelintbc/src/types"
+	"stylelintbc/types"
 )
 
 type GenerateStylelintConfigProps struct {

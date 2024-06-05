@@ -2,7 +2,7 @@ package cli
 
 import (
 	"fmt"
-	"stylelintbc/src/constants"
+	"stylelintbc/constants"
 )
 
 func ShowVersion() {

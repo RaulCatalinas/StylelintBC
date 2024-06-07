@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"os"
 	"stylelintbc/types"
+	"sync"
 )
 
 type GenerateStylelintConfigProps struct {
@@ -24,17 +25,37 @@ func GenerateStylelintConfig(props GenerateStylelintConfigProps) {
 		packagesToInstall = append(packagesToInstall, "stylelint-config-clean-order")
 	}
 
-	InstallDependencies(InstallDependenciesProps{
-		PackageManagerToUse: props.PackageManagerToUse,
-		PackagesToInstall:   packagesToInstall,
-	})
+	var waitGroup sync.WaitGroup
 
-	createStylelintConfigFiles(props.UseStylelintConfigCleanOrder)
+	waitGroup.Add(2)
+
+	go func() {
+		InstallDependencies(InstallDependenciesProps{
+			PackageManagerToUse: props.PackageManagerToUse,
+			PackagesToInstall:   packagesToInstall,
+		})
+
+		waitGroup.Done()
+	}()
+
+	go func() {
+		createStylelintConfigFiles(props.UseStylelintConfigCleanOrder)
+
+		waitGroup.Done()
+	}()
 
 	if props.UsingVSCodeEditor {
-		ConfigureVSCode()
-		AddRecommendedExtension("stylelint.vscode-stylelint")
+		waitGroup.Add(1)
+
+		go func() {
+			ConfigureVSCode()
+			AddRecommendedExtension("stylelint.vscode-stylelint")
+
+			waitGroup.Done()
+		}()
 	}
+
+	waitGroup.Wait()
 
 	WriteMessage(WriteMessageProps{
 		Type:    "success",

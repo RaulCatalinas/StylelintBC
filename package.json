@@ -1,0 +1,38 @@
+{
+  "name": "stylelintbc",
+  "version": "1.0.0",
+  "scripts": {
+    "postinstall": "golang-npm install",
+    "preuninstall": "golang-npm uninstall"
+  },
+  "dependencies": {
+    "golang-npm": "0.0.6"
+  },
+  "goBinary": {
+    "name": "stylelintbc",
+    "path": "./bin",
+    "url": "https://github.com/RaulCatalinas/StylelintBC/releases/download/v{{version}}/goserve_{{version}}_{{platform}}_{{arch}}.tar.gz"
+  },
+  "author": {
+    "name": "Raul Catalinas",
+    "url": "https://github.com/RaulCatalinas",
+    "email": "raulcatalinas@gmail.com"
+  },
+  "readme": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/RaulCatalinas/StylelintBC"
+  },
+  "bugs": {
+    "url": "https://github.com/RaulCatalinas/StylelintBC/issues",
+    "email": "raulcatalinas@gmail.com"
+  },
+  "keywords": [
+    "stylelint",
+    "cli",
+    "command-line-tool",
+    "command-line-interface",
+    "stylelint-config",
+    "go"
+  ]
+}

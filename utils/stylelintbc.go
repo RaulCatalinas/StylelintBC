@@ -9,7 +9,7 @@ import (
 
 type GenerateStylelintConfigProps struct {
 	PackageManagerToUse          types.PackageManager
-	UsingVSCodeEditor            bool
+	UsingVSCodeOrIDXEditor       bool
 	UseStylelintConfigCleanOrder bool
 }
 
@@ -44,11 +44,11 @@ func GenerateStylelintConfig(props GenerateStylelintConfigProps) {
 		waitGroup.Done()
 	}()
 
-	if props.UsingVSCodeEditor {
+	if props.UsingVSCodeOrIDXEditor {
 		waitGroup.Add(1)
 
 		go func() {
-			ConfigureVSCode()
+			ConfigureVSCodeOrIDX()
 			AddRecommendedExtension("stylelint.vscode-stylelint")
 
 			waitGroup.Done()

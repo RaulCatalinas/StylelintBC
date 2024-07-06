@@ -6,10 +6,10 @@ import (
 	"stylelintbc/types"
 )
 
-func ConfigureVSCode() {
+func ConfigureVSCodeOrIDX() {
 	WriteMessage(WriteMessageProps{
 		Type:    "info",
-		Message: "Configuring VSCode...",
+		Message: "Configuring VSCode or IDX...",
 	})
 
 	existVSCodeFolder := Exists(".vscode")
@@ -29,7 +29,7 @@ func ConfigureVSCode() {
 	if err != nil {
 		WriteMessage(WriteMessageProps{
 			Type:    "error",
-			Message: string(GetErrorMessage("VSCodeConfig")),
+			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
 		})
 
 		os.Exit(1)
@@ -42,7 +42,7 @@ func ConfigureVSCode() {
 	if deserializeErr != nil {
 		WriteMessage(WriteMessageProps{
 			Type:    "error",
-			Message: string(GetErrorMessage("VSCodeConfig")),
+			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
 		})
 
 		os.Exit(1)
@@ -57,7 +57,7 @@ func ConfigureVSCode() {
 	if serializeErr != nil {
 		WriteMessage(WriteMessageProps{
 			Type:    "error",
-			Message: string(GetErrorMessage("VSCodeConfig")),
+			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
 		})
 
 		os.Exit(1)
@@ -68,7 +68,7 @@ func ConfigureVSCode() {
 	if writeFileErr != nil {
 		WriteMessage(WriteMessageProps{
 			Type:    "error",
-			Message: string(GetErrorMessage("VSCodeConfig")),
+			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
 		})
 
 		os.Exit(1)
@@ -76,7 +76,7 @@ func ConfigureVSCode() {
 
 	WriteMessage(WriteMessageProps{
 		Type:    "success",
-		Message: "VSCode configured successfully",
+		Message: "VSCode or IDX configured successfully",
 	})
 }
 

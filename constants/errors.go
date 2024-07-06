@@ -19,7 +19,7 @@ var ERROR_MESSAGES = map[string]ErrorMessage{
 
 	"CreateEmptyFile": "An error occurred while creating the empty file. Please try again later, if the error persists please report it on " + ISSUES + ".",
 
-	"VSCodeConfig": "An error occurred while configuring VS Code. Please try again later, if the error persists please report it on " + ISSUES + ".",
+	"VSCodeOrIDXConfig": "An error occurred while configuring VS Code or IDX. Please try again later, if the error persists please report it on " + ISSUES + ".",
 
 	"AddRecommendedExtensions": "An error occurred while adding recommended extensions to the 'extensions.json' file. Please try again later, if the error persists please report it on " + ISSUES + ".",
 

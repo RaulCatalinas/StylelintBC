@@ -21,14 +21,14 @@ func HandlerOptionBuild() {
 		os.Exit(1)
 	}
 
+	usingVSCodeOrIDXEditor := userInput.UsingVSCodeOrIDXEditor()
 	packageManagerToUse := userInput.GetPackageManager()
 	addStylelintConfigCleanOrder := userInput.AddStylelintConfigCleanOrder()
-	usingVSCodeEditor := userInput.UsingVSCodeEditor()
 
 	utils.GenerateStylelintConfig(utils.GenerateStylelintConfigProps{
 		PackageManagerToUse:          packageManagerToUse,
 		UseStylelintConfigCleanOrder: addStylelintConfigCleanOrder,
-		UsingVSCodeEditor:            usingVSCodeEditor,
+		UsingVSCodeEditor:            usingVSCodeOrIDXEditor,
 	})
 }
 

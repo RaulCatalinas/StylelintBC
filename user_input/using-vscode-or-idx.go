@@ -7,19 +7,19 @@ import (
 	"github.com/AlecAivazis/survey/v2"
 )
 
-func UsingVSCodeEditor() bool {
+func UsingVSCodeOrIDXEditor() bool {
 	var questions = []*survey.Question{
 		{
-			Name: "usingVSCodeEditor",
+			Name: "usingVSCodeOrIDXEditor",
 			Prompt: &survey.Confirm{
-				Message: "Will you use VS Code as a code editor?",
+				Message: "Are you using VS Code or IDX as a code editor?",
 				Default: true,
 			},
 		},
 	}
 
 	answers := struct {
-		UsingVSCodeEditor bool `survey:"usingVSCodeEditor"`
+		UsingVSCodeOrIDXEditor bool `survey:"usingVSCodeOrIDXEditor"`
 	}{}
 
 	err := survey.Ask(questions, &answers)
@@ -33,5 +33,5 @@ func UsingVSCodeEditor() bool {
 		os.Exit(1)
 	}
 
-	return answers.UsingVSCodeEditor
+	return answers.UsingVSCodeOrIDXEditor
 }

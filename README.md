@@ -1,6 +1,7 @@
 # StylelintBC
 
 StylelintBC is a command line for easy Stylelint configuration
+
 ## Run
 
 1. Install the CLI

@@ -11,7 +11,7 @@
   "goBinary": {
     "name": "stylelintbc",
     "path": "./bin",
-    "url": "https://github.com/RaulCatalinas/StylelintBC/releases/download/v{{version}}/goserve_{{version}}_{{platform}}_{{arch}}.tar.gz"
+    "url": "https://github.com/RaulCatalinas/StylelintBC/releases/latest/download/StylelintBC_{{version}}_{{platform}}_{{arch}}.tar.gz"
   },
   "author": {
     "name": "Raul Catalinas",

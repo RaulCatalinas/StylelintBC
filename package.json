@@ -10,7 +10,7 @@
   },
   "goBinary": {
     "name": "stylelintbc",
-    "path": "./bin",
+    "path": "./dist",
     "url": "https://github.com/RaulCatalinas/StylelintBC/releases/latest/download/StylelintBC_{{version}}_{{platform}}_{{arch}}.tar.gz"
   },
   "author": {

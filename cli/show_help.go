@@ -2,18 +2,18 @@ package cli
 
 import (
 	"fmt"
-	"stylelintbc/constants"
+	"stylelintbc/types"
 )
 
-func ShowHelp() {
+func ShowHelp(options []types.Option) {
 	fmt.Println("Usage: stylelintbc [options]")
 	fmt.Println()
 	fmt.Println("Command line for easy Stylelint configuration")
 	fmt.Println()
 	fmt.Println("Options:")
 
-	for _, option := range constants.Options {
-		fmt.Printf("%-15s %-5s %s\n", option.Option, option.Alias, option.Description)
+	for _, option := range options {
+		fmt.Printf("%-15s %-5s %s\n", option.Name, option.Alias, option.Description)
 	}
 
 	fmt.Println()

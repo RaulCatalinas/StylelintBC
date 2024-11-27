@@ -1,7 +1,8 @@
 package types
 
 type Option struct {
-	Option      string
+	Name        string
 	Alias       string
 	Description string
+	Handler     func()
 }

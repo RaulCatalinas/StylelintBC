@@ -1,7 +1,7 @@
 package main
 
-import "stylelintbc/cli"
+import "stylelintbc/config"
 
 func main() {
-	cli.ReadUserInput()
+	config.ConfigureOptions()
 }

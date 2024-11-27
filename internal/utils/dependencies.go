@@ -5,11 +5,11 @@ import (
 	"os/exec"
 
 	"github.com/RaulCatalinas/stylelintbc/internal/constants"
-	"github.com/RaulCatalinas/stylelintbc/internal/types"
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 )
 
 type InstallDependenciesProps struct {
-	PackageManagerToUse types.PackageManager
+	PackageManagerToUse enums.PackageManager
 	PackagesToInstall   []string
 }
 
@@ -17,7 +17,7 @@ func InstallDependencies(props InstallDependenciesProps) {
 	notificationMessage := "Installing dependencies using: " + props.PackageManagerToUse + "..."
 
 	WriteMessage(WriteMessageProps{
-		Type:    "info",
+		Type:    enums.MessageTypeInfo,
 		Message: string(notificationMessage),
 	})
 
@@ -38,7 +38,7 @@ func InstallDependencies(props InstallDependenciesProps) {
 
 	if err != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("Dependencies")),
 		})
 
@@ -46,7 +46,7 @@ func InstallDependencies(props InstallDependenciesProps) {
 	}
 
 	WriteMessage(WriteMessageProps{
-		Type:    "success",
+		Type:    enums.MessageTypeSuccess,
 		Message: "Dependencies installed successfully",
 	})
 }

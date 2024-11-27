@@ -3,31 +3,32 @@ package userinput
 import (
 	"os"
 
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 
 	"github.com/AlecAivazis/survey/v2"
 )
 
-func UsingVSCodeOrIDXEditor() bool {
+func UsingVSCodeEditor() bool {
 	var questions = []*survey.Question{
 		{
-			Name: "usingVSCodeOrIDXEditor",
+			Name: "usingVSCodeEditor",
 			Prompt: &survey.Confirm{
-				Message: "Are you using VS Code or IDX as a code editor?",
+				Message: "Are you using VS Code as a code editor?",
 				Default: true,
 			},
 		},
 	}
 
 	answers := struct {
-		UsingVSCodeOrIDXEditor bool `survey:"usingVSCodeOrIDXEditor"`
+		UsingVSCodeOrIDXEditor bool `survey:"usingVSCodeEditor"`
 	}{}
 
 	err := survey.Ask(questions, &answers)
 
 	if err != nil {
 		utils.WriteMessage(utils.WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(utils.GetErrorMessage("VSCodeEditor")),
 		})
 

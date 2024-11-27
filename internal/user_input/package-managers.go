@@ -3,21 +3,20 @@ package userinput
 import (
 	"os"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/constants"
-	"github.com/RaulCatalinas/stylelintbc/internal/types"
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 
 	"github.com/AlecAivazis/survey/v2"
 )
 
-func GetPackageManager() types.PackageManager {
+func GetPackageManager() enums.PackageManager {
 	var questions = []*survey.Question{
 		{
 			Name: "packageManger",
 			Prompt: &survey.Select{
-				Options: constants.PackageManagers,
+				Options: utils.GetPackageManagersAsStrings(),
 				Message: "Which package manager do you wanna use?",
-				Default: "npm",
+				Default: "npm", // <- If we use the enum here the library gives an error.
 			},
 		},
 	}
@@ -30,12 +29,12 @@ func GetPackageManager() types.PackageManager {
 
 	if err != nil {
 		utils.WriteMessage(utils.WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(utils.GetErrorMessage("PackageManagerSelection")),
 		})
 
 		os.Exit(1)
 	}
 
-	return types.PackageManager(answers.PackageManager)
+	return enums.PackageManager(answers.PackageManager)
 }

@@ -5,18 +5,19 @@ import (
 	"os"
 	"sync"
 
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 type GenerateStylelintConfigProps struct {
-	PackageManagerToUse          types.PackageManager
-	UsingVSCodeOrIDXEditor       bool
+	PackageManagerToUse          enums.PackageManager
+	UsingVSCodeEditor            bool
 	UseStylelintConfigCleanOrder bool
 }
 
 func GenerateStylelintConfig(props GenerateStylelintConfigProps) {
 	WriteMessage(WriteMessageProps{
-		Type:    "config",
+		Type:    enums.MessageTypeConfig,
 		Message: "Generating Stylelint's configuration...",
 	})
 
@@ -45,11 +46,11 @@ func GenerateStylelintConfig(props GenerateStylelintConfigProps) {
 		waitGroup.Done()
 	}()
 
-	if props.UsingVSCodeOrIDXEditor {
+	if props.UsingVSCodeEditor {
 		waitGroup.Add(1)
 
 		go func() {
-			ConfigureVSCodeOrIDX()
+			ConfigureVSCode()
 			AddRecommendedExtension("stylelint.vscode-stylelint")
 
 			waitGroup.Done()
@@ -66,7 +67,7 @@ func GenerateStylelintConfig(props GenerateStylelintConfigProps) {
 
 func createStylelintConfigFiles(useStylelintConfigCleanOrder bool) {
 	WriteMessage(WriteMessageProps{
-		Type:    "info",
+		Type:    enums.MessageTypeInfo,
 		Message: "Creating configuration file...",
 	})
 
@@ -80,7 +81,7 @@ func createStylelintConfigFiles(useStylelintConfigCleanOrder bool) {
 
 	if err != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("ConfigFilesCreate")),
 		})
 
@@ -93,7 +94,7 @@ func createStylelintConfigFiles(useStylelintConfigCleanOrder bool) {
 
 	if deserializeErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("ConfigFilesCreate")),
 		})
 
@@ -127,7 +128,7 @@ func createStylelintConfigFiles(useStylelintConfigCleanOrder bool) {
 
 	if writeFileErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("ConfigFilesCreate")),
 		})
 
@@ -135,7 +136,7 @@ func createStylelintConfigFiles(useStylelintConfigCleanOrder bool) {
 	}
 
 	WriteMessage(WriteMessageProps{
-		Type:    "success",
+		Type:    enums.MessageTypeSuccess,
 		Message: "Configuration file (.stylelintrc.json) created successfully",
 	})
 }

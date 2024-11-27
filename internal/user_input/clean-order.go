@@ -3,6 +3,7 @@ package userinput
 import (
 	"os"
 
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 
 	"github.com/AlecAivazis/survey/v2"
@@ -27,7 +28,7 @@ func AddStylelintConfigCleanOrder() bool {
 
 	if err != nil {
 		utils.WriteMessage(utils.WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(utils.GetErrorMessage("StylelintConfigCleanOrder")),
 		})
 

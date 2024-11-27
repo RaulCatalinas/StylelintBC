@@ -4,12 +4,13 @@ import (
 	"encoding/json"
 	"os"
 
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
-func ConfigureVSCodeOrIDX() {
+func ConfigureVSCode() {
 	WriteMessage(WriteMessageProps{
-		Type:    "info",
+		Type:    enums.MessageTypeInfo,
 		Message: "Configuring VSCode...",
 	})
 
@@ -29,7 +30,7 @@ func ConfigureVSCodeOrIDX() {
 
 	if err != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
 		})
 
@@ -42,7 +43,7 @@ func ConfigureVSCodeOrIDX() {
 
 	if deserializeErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
 		})
 
@@ -57,8 +58,8 @@ func ConfigureVSCodeOrIDX() {
 
 	if serializeErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
-			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
+			Type:    enums.MessageTypeError,
+			Message: string(GetErrorMessage("VSCodeConfig")),
 		})
 
 		os.Exit(1)
@@ -68,7 +69,7 @@ func ConfigureVSCodeOrIDX() {
 
 	if writeFileErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("VSCodeConfig")),
 		})
 
@@ -76,14 +77,14 @@ func ConfigureVSCodeOrIDX() {
 	}
 
 	WriteMessage(WriteMessageProps{
-		Type:    "success",
+		Type:    enums.MessageTypeSuccess,
 		Message: "VSCode configured successfully",
 	})
 }
 
 func AddRecommendedExtension(extension string) {
 	WriteMessage(WriteMessageProps{
-		Type:    "info",
+		Type:    enums.MessageTypeInfo,
 		Message: "Adding recommended extensions...",
 	})
 
@@ -103,7 +104,7 @@ func AddRecommendedExtension(extension string) {
 
 	if err != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("AddRecommendedExtensions")),
 		})
 
@@ -116,7 +117,7 @@ func AddRecommendedExtension(extension string) {
 
 	if deserializeErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("AddRecommendedExtensions")),
 		})
 
@@ -133,7 +134,7 @@ func AddRecommendedExtension(extension string) {
 
 	if serializeErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("AddRecommendedExtensions")),
 		})
 
@@ -144,7 +145,7 @@ func AddRecommendedExtension(extension string) {
 
 	if writeFileErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("AddRecommendedExtensions")),
 		})
 
@@ -152,7 +153,7 @@ func AddRecommendedExtension(extension string) {
 	}
 
 	WriteMessage(WriteMessageProps{
-		Type:    "success",
+		Type:    enums.MessageTypeSuccess,
 		Message: "Recommended extensions added successfully",
 	})
 }

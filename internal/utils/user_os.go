@@ -5,6 +5,7 @@ import (
 	"os"
 	"strings"
 
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	"github.com/skratchdot/open-golang/open"
 )
 
@@ -21,7 +22,7 @@ func CreateFolder(name string) {
 		errorMessage := GetErrorMessage("CreateFolder")
 
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: strings.Replace(string(errorMessage), "{folderName}", name, -1),
 		})
 
@@ -36,7 +37,7 @@ func CreateEmptyJsonFile(name string) {
 
 	if err != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("CreateEmptyFile")),
 		})
 
@@ -51,7 +52,7 @@ func CreateEmptyJsonFile(name string) {
 
 	if encodeErr != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("CreateEmptyFile")),
 		})
 
@@ -64,7 +65,7 @@ func CreateEmptyFile(fileName string) {
 
 	if err != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("CreateEmptyFile")),
 		})
 
@@ -92,7 +93,7 @@ func OpenURL(url string) {
 
 	if err != nil {
 		WriteMessage(WriteMessageProps{
-			Type:    "error",
+			Type:    enums.MessageTypeError,
 			Message: string(GetErrorMessage("GitHubRepoOpen")),
 		})
 

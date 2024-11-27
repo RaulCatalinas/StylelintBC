@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/RaulCatalinas/stylelintbc/internal/cli"
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	"github.com/RaulCatalinas/stylelintbc/internal/options"
 	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 )
@@ -27,7 +28,7 @@ func ConfigureOptions() {
 	}
 
 	utils.WriteMessage(utils.WriteMessageProps{
-		Type:    "error",
+		Type:    enums.MessageTypeError,
 		Message: "The option you've tried to execute doesn't exist",
 	})
 

@@ -4,6 +4,7 @@ import (
 	"os"
 
 	"github.com/RaulCatalinas/stylelintbc/internal/constants"
+	"github.com/RaulCatalinas/stylelintbc/internal/enums"
 	userInput "github.com/RaulCatalinas/stylelintbc/internal/user_input"
 	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 )
@@ -14,7 +15,7 @@ func HandlerOptionBuild() {
 	if !existPackageJsonInTheCurrentDirectory {
 		utils.WriteMessage(
 			utils.WriteMessageProps{
-				Type:    "error",
+				Type:    enums.MessageTypeError,
 				Message: string(utils.GetErrorMessage("NotFound")),
 			},
 		)
@@ -24,18 +25,18 @@ func HandlerOptionBuild() {
 
 	packageManagerToUse := userInput.GetPackageManager()
 	addStylelintConfigCleanOrder := userInput.AddStylelintConfigCleanOrder()
-	usingVSCodeOrIDXEditor := userInput.UsingVSCodeOrIDXEditor()
+	usingVSCodeEditor := userInput.UsingVSCodeEditor()
 
 	utils.GenerateStylelintConfig(utils.GenerateStylelintConfigProps{
 		PackageManagerToUse:          packageManagerToUse,
 		UseStylelintConfigCleanOrder: addStylelintConfigCleanOrder,
-		UsingVSCodeOrIDXEditor:       usingVSCodeOrIDXEditor,
+		UsingVSCodeEditor:            usingVSCodeEditor,
 	})
 }
 
 func HandlerOptionCollaborate() {
 	utils.WriteMessage(utils.WriteMessageProps{
-		Type:    "info",
+		Type:    enums.MessageTypeInfo,
 		Message: "Opening the GitHub repository...",
 	})
 

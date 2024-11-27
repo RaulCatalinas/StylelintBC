@@ -2,7 +2,8 @@ package cli
 
 import (
 	"fmt"
-	"stylelintbc/types"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 func ShowHelp(options []types.Option) {

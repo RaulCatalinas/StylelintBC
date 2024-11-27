@@ -2,7 +2,8 @@ package cli
 
 import (
 	"fmt"
-	"stylelintbc/constants"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/constants"
 )
 
 func ShowVersion() {

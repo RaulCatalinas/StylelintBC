@@ -3,8 +3,9 @@ package utils
 import (
 	"encoding/json"
 	"os"
-	"stylelintbc/types"
 	"sync"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 type GenerateStylelintConfigProps struct {

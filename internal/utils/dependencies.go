@@ -3,8 +3,9 @@ package utils
 import (
 	"os"
 	"os/exec"
-	"stylelintbc/constants"
-	"stylelintbc/types"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/constants"
+	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 type InstallDependenciesProps struct {

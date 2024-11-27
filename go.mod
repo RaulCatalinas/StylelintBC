@@ -1,4 +1,4 @@
-module stylelintbc
+module github.com/RaulCatalinas/stylelintbc
 
 go 1.22.3
 

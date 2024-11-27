@@ -2,7 +2,8 @@ package utils
 
 import (
 	"fmt"
-	"stylelintbc/types"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 type WriteMessageProps struct {

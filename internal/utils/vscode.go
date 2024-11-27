@@ -3,13 +3,14 @@ package utils
 import (
 	"encoding/json"
 	"os"
-	"stylelintbc/types"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 func ConfigureVSCodeOrIDX() {
 	WriteMessage(WriteMessageProps{
 		Type:    "info",
-		Message: "Configuring VSCode or IDX...",
+		Message: "Configuring VSCode...",
 	})
 
 	existVSCodeFolder := Exists(".vscode")
@@ -68,7 +69,7 @@ func ConfigureVSCodeOrIDX() {
 	if writeFileErr != nil {
 		WriteMessage(WriteMessageProps{
 			Type:    "error",
-			Message: string(GetErrorMessage("VSCodeOrIDXConfig")),
+			Message: string(GetErrorMessage("VSCodeConfig")),
 		})
 
 		os.Exit(1)
@@ -76,7 +77,7 @@ func ConfigureVSCodeOrIDX() {
 
 	WriteMessage(WriteMessageProps{
 		Type:    "success",
-		Message: "VSCode or IDX configured successfully",
+		Message: "VSCode configured successfully",
 	})
 }
 

@@ -2,24 +2,25 @@ package userinput
 
 import (
 	"os"
-	"stylelintbc/utils"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 
 	"github.com/AlecAivazis/survey/v2"
 )
 
-func UsingVSCodeOrIDXEditor() bool {
+func AddStylelintConfigCleanOrder() bool {
 	var questions = []*survey.Question{
 		{
-			Name: "usingVSCodeOrIDXEditor",
+			Name: "addCleanOrder",
 			Prompt: &survey.Confirm{
-				Message: "Are you using VS Code or IDX as a code editor?",
+				Message: "Do you wanna add stylelint-config-clean-order?",
 				Default: true,
 			},
 		},
 	}
 
 	answers := struct {
-		UsingVSCodeOrIDXEditor bool `survey:"usingVSCodeOrIDXEditor"`
+		AddConfigCleanOrder bool `survey:"addCleanOrder"`
 	}{}
 
 	err := survey.Ask(questions, &answers)
@@ -27,11 +28,11 @@ func UsingVSCodeOrIDXEditor() bool {
 	if err != nil {
 		utils.WriteMessage(utils.WriteMessageProps{
 			Type:    "error",
-			Message: string(utils.GetErrorMessage("VSCodeEditor")),
+			Message: string(utils.GetErrorMessage("StylelintConfigCleanOrder")),
 		})
 
 		os.Exit(1)
 	}
 
-	return answers.UsingVSCodeOrIDXEditor
+	return answers.AddConfigCleanOrder
 }

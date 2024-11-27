@@ -4,9 +4,9 @@ import (
 	"fmt"
 	"os"
 
-	"stylelintbc/cli"
-	"stylelintbc/options"
-	"stylelintbc/utils"
+	"github.com/RaulCatalinas/stylelintbc/internal/cli"
+	"github.com/RaulCatalinas/stylelintbc/internal/options"
+	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 )
 
 func ConfigureOptions() {

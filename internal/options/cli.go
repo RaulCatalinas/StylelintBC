@@ -1,9 +1,9 @@
 package options
 
 import (
-	"stylelintbc/cli"
-	"stylelintbc/handlers"
-	"stylelintbc/types"
+	"github.com/RaulCatalinas/stylelintbc/internal/cli"
+	"github.com/RaulCatalinas/stylelintbc/internal/handlers"
+	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 func GetOptions() []types.Option {

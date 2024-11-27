@@ -2,9 +2,10 @@ package userinput
 
 import (
 	"os"
-	"stylelintbc/constants"
-	"stylelintbc/types"
-	"stylelintbc/utils"
+
+	"github.com/RaulCatalinas/stylelintbc/internal/constants"
+	"github.com/RaulCatalinas/stylelintbc/internal/types"
+	"github.com/RaulCatalinas/stylelintbc/internal/utils"
 
 	"github.com/AlecAivazis/survey/v2"
 )

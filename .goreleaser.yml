@@ -6,7 +6,7 @@ before:
     - go mod tidy
 
 builds:
-  - binary: stylelintbc
+  - binary: StylelintBC
     goos:
       - windows
       - darwin

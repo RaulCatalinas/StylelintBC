@@ -5,7 +5,7 @@ import (
 	"os"
 	"strings"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/enums"
+	"github.com/RaulCatalinas/StylelintBC/internal/enums"
 	"github.com/skratchdot/open-golang/open"
 )
 

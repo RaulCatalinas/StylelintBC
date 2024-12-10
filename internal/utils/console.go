@@ -3,7 +3,7 @@ package utils
 import (
 	"fmt"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/enums"
+	"github.com/RaulCatalinas/StylelintBC/internal/enums"
 )
 
 type WriteMessageProps struct {

@@ -4,13 +4,13 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/types"
+	"github.com/RaulCatalinas/StylelintBC/internal/types"
 )
 
 func ShowHelp(options []types.Option) {
 	var builder strings.Builder
 
-	builder.WriteString("Usage: stylelintbc [options]\n\n")
+	builder.WriteString("Usage: StylelintBC [options]\n\n")
 	builder.WriteString("Command line for easy Stylelint configuration\n\n")
 	builder.WriteString("Options:\n")
 

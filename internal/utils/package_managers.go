@@ -1,6 +1,6 @@
 package utils
 
-import "github.com/RaulCatalinas/stylelintbc/internal/constants"
+import "github.com/RaulCatalinas/StylelintBC/internal/constants"
 
 func GetPackageManagersAsStrings() []string {
 	packageManagesAsStrings := make([]string, len(constants.PackageManagers))

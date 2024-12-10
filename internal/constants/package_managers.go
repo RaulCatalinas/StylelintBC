@@ -1,6 +1,6 @@
 package constants
 
-import "github.com/RaulCatalinas/stylelintbc/internal/enums"
+import "github.com/RaulCatalinas/StylelintBC/internal/enums"
 
 var PackageManagers = []enums.PackageManager{
 	enums.PackageManagerNpm,

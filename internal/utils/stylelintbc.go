@@ -5,8 +5,8 @@ import (
 	"os"
 	"sync"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/enums"
-	"github.com/RaulCatalinas/stylelintbc/internal/types"
+	"github.com/RaulCatalinas/StylelintBC/internal/enums"
+	"github.com/RaulCatalinas/StylelintBC/internal/types"
 )
 
 type GenerateStylelintConfigProps struct {

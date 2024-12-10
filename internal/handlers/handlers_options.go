@@ -3,10 +3,10 @@ package handlers
 import (
 	"os"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/constants"
-	"github.com/RaulCatalinas/stylelintbc/internal/enums"
-	userInput "github.com/RaulCatalinas/stylelintbc/internal/user_input"
-	"github.com/RaulCatalinas/stylelintbc/internal/utils"
+	"github.com/RaulCatalinas/StylelintBC/internal/constants"
+	"github.com/RaulCatalinas/StylelintBC/internal/enums"
+	userInput "github.com/RaulCatalinas/StylelintBC/internal/user_input"
+	"github.com/RaulCatalinas/StylelintBC/internal/utils"
 )
 
 func HandlerOptionBuild() {

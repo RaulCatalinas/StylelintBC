@@ -3,8 +3,8 @@ package userinput
 import (
 	"os"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/enums"
-	"github.com/RaulCatalinas/stylelintbc/internal/utils"
+	"github.com/RaulCatalinas/StylelintBC/internal/enums"
+	"github.com/RaulCatalinas/StylelintBC/internal/utils"
 
 	"github.com/AlecAivazis/survey/v2"
 )

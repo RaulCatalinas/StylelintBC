@@ -1,6 +1,6 @@
 package constants
 
-import "github.com/RaulCatalinas/stylelintbc/internal/enums"
+import "github.com/RaulCatalinas/StylelintBC/internal/enums"
 
 var INSTALLATION_COMMANDS = map[enums.PackageManager]string{
 	enums.PackageManagerNpm:  "install",

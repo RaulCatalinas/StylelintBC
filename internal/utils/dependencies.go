@@ -4,8 +4,8 @@ import (
 	"os"
 	"os/exec"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/constants"
-	"github.com/RaulCatalinas/stylelintbc/internal/enums"
+	"github.com/RaulCatalinas/StylelintBC/internal/constants"
+	"github.com/RaulCatalinas/StylelintBC/internal/enums"
 )
 
 type InstallDependenciesProps struct {

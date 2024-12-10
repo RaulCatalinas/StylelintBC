@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/RaulCatalinas/stylelintbc/internal/cli"
-	"github.com/RaulCatalinas/stylelintbc/internal/enums"
-	"github.com/RaulCatalinas/stylelintbc/internal/options"
-	"github.com/RaulCatalinas/stylelintbc/internal/types"
-	"github.com/RaulCatalinas/stylelintbc/internal/utils"
+	"github.com/RaulCatalinas/StylelintBC/internal/cli"
+	"github.com/RaulCatalinas/StylelintBC/internal/enums"
+	"github.com/RaulCatalinas/StylelintBC/internal/options"
+	"github.com/RaulCatalinas/StylelintBC/internal/types"
+	"github.com/RaulCatalinas/StylelintBC/internal/utils"
 )
 
 func buildOptionMap(optionsList []types.Option) map[string]func() {

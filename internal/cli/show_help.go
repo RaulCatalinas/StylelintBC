@@ -2,20 +2,29 @@ package cli
 
 import (
 	"fmt"
+	"strings"
 
 	"github.com/RaulCatalinas/stylelintbc/internal/types"
 )
 
 func ShowHelp(options []types.Option) {
-	fmt.Println("Usage: stylelintbc [options]")
-	fmt.Println()
-	fmt.Println("Command line for easy Stylelint configuration")
-	fmt.Println()
-	fmt.Println("Options:")
+	var builder strings.Builder
+
+	builder.WriteString("Usage: stylelintbc [options]\n\n")
+	builder.WriteString("Command line for easy Stylelint configuration\n\n")
+	builder.WriteString("Options:\n")
 
 	for _, option := range options {
-		fmt.Printf("%-15s %-5s %s\n", option.Name, option.Alias, option.Description)
+		fmt.Fprintf(
+			&builder,
+			"%-15s %-5s %s\n",
+			option.Name,
+			option.Alias,
+			option.Description,
+		)
 	}
 
-	fmt.Println()
+	builder.WriteString("\n")
+
+	fmt.Print(builder.String())
 }

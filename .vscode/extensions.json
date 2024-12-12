@@ -1,3 +1,6 @@
 {
-  "recommendations": ["golang.go"]
+  "recommendations": [
+    "tamasfe.even-better-toml",
+    "rust-lang.rust-analyzer"
+  ]
 }

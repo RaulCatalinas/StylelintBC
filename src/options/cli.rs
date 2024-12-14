@@ -1,4 +1,5 @@
 use crate::cli;
+use crate::handlers;
 use crate::types;
 
 pub fn get_options() -> Vec<types::CliOption> {

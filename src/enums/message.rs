@@ -1,8 +1,10 @@
+#[derive(Hash, PartialEq, Eq)]
 pub enum MessageType {
     Success,
     Error,
     Warning,
     Info,
+    Config,
 }
 
 pub enum MessageColor {

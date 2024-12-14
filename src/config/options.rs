@@ -2,23 +2,21 @@ use std::env;
 use std::process;
 
 use crate::cli::show_help;
-use crate::constants::OPTIONS;
 use crate::enums::MessageType;
-use crate::options;
+use crate::options::get_options;
 use crate::utils::{write_message, WriteMessageProps};
 
 pub fn configure_options() {
     let args: Vec<String> = env::args().collect();
+    let options = get_options();
 
     if args.len() != 2 {
-        show_help(OPTIONS);
+        show_help(options);
 
         process::exit(0);
     }
 
     let input = &args[1];
-
-    let options = options::get_options();
 
     for option in options {
         if input == option.name || input == option.alias {
@@ -35,5 +33,7 @@ pub fn configure_options() {
 
     println!();
 
-    show_help(OPTIONS);
+    let options = get_options();
+
+    show_help(options);
 }

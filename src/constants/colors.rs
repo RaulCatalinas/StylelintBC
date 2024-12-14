@@ -1,30 +1,64 @@
 use crate::enums;
+use lazy_static::lazy_static;
 use std::collections::HashMap;
 
 const COLOR_PREFIX: &str = "\033[";
 const COLOR_SUFFIX: &str = "m";
+pub const DEFAULT_COLOR: &str = "\033[0m";
 
-pub const DEFAULT_COLOR: &str = COLOR_PREFIX + enums::MessageColor::Default + COLOR_SUFFIX;
+lazy_static! {
+    pub static ref MESSAGE_COLORS: HashMap<enums::MessageType, String> = {
+        let mut map = HashMap::new();
 
-pub static MESSAGE_COLORS: HashMap<enums::MessageType, String> = {
-    let mut colors: HashMap<enums::MessageType, String> = HashMap::new();
+        map.insert(
+            enums::MessageType::Success,
+            format!(
+                "{}{}{}",
+                COLOR_PREFIX,
+                enums::MessageColor::Green as u8,
+                COLOR_SUFFIX
+            ),
+        );
 
-    colors.insert(
-        enums::MessageType::Success,
-        COLOR_PREFIX + enums::MessageColor::Green + COLOR_SUFFIX,
-    );
-    colors.insert(
-        enums::MessageType::Error,
-        COLOR_PREFIX + enums::MessageColor::Red + COLOR_SUFFIX,
-    );
-    colors.insert(
-        enums::MessageType::Warning,
-        COLOR_PREFIX + enums::MessageColor::Yellow + COLOR_SUFFIX,
-    );
-    colors.insert(
-        enums::MessageType::Info,
-        COLOR_PREFIX + enums::MessageColor::Blue + COLOR_SUFFIX,
-    );
+        map.insert(
+            enums::MessageType::Info,
+            format!(
+                "{}{}{}",
+                COLOR_PREFIX,
+                enums::MessageColor::Blue as u8,
+                COLOR_SUFFIX
+            ),
+        );
 
-    return colors;
-};
+        map.insert(
+            enums::MessageType::Error,
+            format!(
+                "{}{}{}",
+                COLOR_PREFIX,
+                enums::MessageColor::Red as u8,
+                COLOR_SUFFIX
+            ),
+        );
+
+        map.insert(
+            enums::MessageType::Config,
+            format!(
+                "{}{}{}",
+                COLOR_PREFIX,
+                enums::MessageColor::White as u8,
+                COLOR_SUFFIX
+            ),
+        );
+
+        map.insert(
+            enums::MessageType::Warning,
+            format!(
+                "{}{}{}",
+                COLOR_PREFIX,
+                enums::MessageColor::Yellow as u8,
+                COLOR_SUFFIX
+            ),
+        );
+        map
+    };
+}

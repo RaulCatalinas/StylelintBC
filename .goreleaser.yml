@@ -6,7 +6,7 @@ before:
     - go mod tidy
 
 builds:
-  - binary: StylelintBC
+  - binary: stylelintbc
     goos:
       - windows
       - darwin
@@ -14,6 +14,14 @@ builds:
     goarch:
       - amd64
       - arm64
+
+# Avoid creating compressed files
+archives:
+  - format: binary
+    name_template: "{{ .Binary }}"
+
+# Specify the main output folder
+dist: npm-package/bin
 
 changelog:
   sort: asc
